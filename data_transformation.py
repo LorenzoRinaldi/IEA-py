@@ -6,7 +6,7 @@
 
 
 import pandas as pd
-from ieapy.constants import (
+from ieastatspy.constants import (
     sets,
     index_acts_dict,
     index_find_dict,
