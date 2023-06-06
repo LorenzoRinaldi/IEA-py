@@ -1,7 +1,0 @@
-LICENSE
-setup.py
-ieastatspy.egg-info/PKG-INFO
-ieastatspy.egg-info/SOURCES.txt
-ieastatspy.egg-info/dependency_links.txt
-ieastatspy.egg-info/requires.txt
-ieastatspy.egg-info/top_level.txt
