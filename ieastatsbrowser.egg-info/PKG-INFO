@@ -1,5 +1,5 @@
 Metadata-Version: 2.1
-Name: ieabrowser
+Name: ieastatsbrowser
 Version: 0.1.0
 Summary: A class to read IEA balances in Excel and rearrange them in supply-use format
 Home-page: https://github.com/LorenzoRinaldi/IEA-py
