@@ -6,7 +6,7 @@
 
 
 import pandas as pd
-from ieastatspy.constants import (
+from ieastatsbrowser.constants import (
     sets,
     index_acts_dict,
     index_find_dict,

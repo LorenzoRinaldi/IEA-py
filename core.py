@@ -6,10 +6,10 @@
 
 
 import pandas as pd
-from ieastatspy.constants import sets,flow_commodity_map
+from ieastatsbrowser.constants import sets,flow_commodity_map
 import mario
 from mario.tools.constants import _MASTER_INDEX as MI
-from ieastatspy.data_transformation import (
+from ieastatsbrowser.data_transformation import (
     sut_empty,
     fill_S,
     fill_U,
@@ -18,7 +18,7 @@ from ieastatspy.data_transformation import (
     fill_V,
     )
 
-from ieastatspy.errors import WrongInput
+from ieabrowser.errors import WrongInput
 
 
 class iea_stats:

@@ -7,10 +7,8 @@
 from setuptools import find_packages, setup
 
 setup(
-    name="ieastatspy",
-    description=(
-        "A class to read IEA balances in Excel and rearrange them in supply-use format"
-    ),
+    name="ieastatsbrowser",
+    description="A class to read IEA balances in Excel and rearrange them in supply-use format",
     url="https://github.com/LorenzoRinaldi/IEA-py",
     author="Lorenzo Rinaldi",
     author_email="lorenzo.rinaldi@polimi.it",

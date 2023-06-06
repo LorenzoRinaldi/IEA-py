@@ -1,0 +1,7 @@
+LICENSE
+setup.py
+ieabrowser.egg-info/PKG-INFO
+ieabrowser.egg-info/SOURCES.txt
+ieabrowser.egg-info/dependency_links.txt
+ieabrowser.egg-info/requires.txt
+ieabrowser.egg-info/top_level.txt
