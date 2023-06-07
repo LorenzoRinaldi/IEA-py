@@ -24,6 +24,8 @@ def sut_empty(
     
     region = instance.region
     index_coms = copy.deepcopy(sets['Balances']['Flows'])
+    index_coms.remove('Hydro')
+    index_coms.remove('Wind, solar, etc.')
     
     index_acts = []
     for i,acts in index_acts_dict.items():

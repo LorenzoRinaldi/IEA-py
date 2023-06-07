@@ -28,7 +28,6 @@ class iea_stats:
             path_balances:str,
             path_electricity:str,
             region:str,
-            CHP:bool = False,
             )->None:
                 
         self.data = {
@@ -37,7 +36,6 @@ class iea_stats:
             'Heat': {},
             }
         
-        self.CHP_split = False
         self.region = region
         
         for k,v in sets['Balances'].items():
@@ -48,43 +46,28 @@ class iea_stats:
     
         for k,v in sets['Electricity'].items():
             if k !='Flows':
-                self.data['Electricity'][k] = pd.read_excel(path_electricity,index_col=[0], header=[0,1]).loc[v,('Electricity','GWh')].to_frame()
+                self.data['Electricity'][k] = pd.read_excel(path_electricity,index_col=[0], header=[0,1]).loc[v,('Electricity','GWh')].to_frame()*3.6
                 self.data['Electricity'][k].columns = [k]
                 self.data['Electricity'][k].index.names = ['Flows']
 
         for k,v in sets['Electricity'].items():
             if k !='Flows':
-                self.data['Heat'][k] = pd.read_excel(path_electricity,index_col=[0], header=[0,1]).loc[v,('Heat','TJ')].to_frame()*3.6
+                self.data['Heat'][k] = pd.read_excel(path_electricity,index_col=[0], header=[0,1]).loc[v,('Heat','TJ')].to_frame()
                 self.data['Heat'][k].columns = [k]
                 self.data['Heat'][k].index.names = ['Flows']
                 
-        if CHP==False:
-            self.split_CHP
-        
-        
-    def split_CHP(
-            self,
-            )->None:
-        
-        """
-        This function re-allocates CHP plants production to Electricity plants and Heat plants
-              
-        Returns
-        -------
-        None.
-
-        """
-        
         CHP_ee_prod = self.data['Balances']['Transformation'].loc['CHP plants','Electricity']
         CHP_heat_prod = self.data['Balances']['Transformation'].loc['CHP plants','Heat']
         
         CHP_ee_ratio = CHP_ee_prod/(CHP_ee_prod+CHP_heat_prod)
         CHP_heat_ratio = 1 - CHP_ee_ratio
         
-        for flow in self.data['Balances']['Flows']:
+        for flow in sets['Balances']['Flows']:
             self.data['Balances']['Transformation'].loc['Electricity plants',flow] += self.data['Balances']['Transformation'].loc['CHP plants',flow]*CHP_ee_ratio
             self.data['Balances']['Transformation'].loc['Heat plants',flow] += self.data['Balances']['Transformation'].loc['CHP plants',flow]*CHP_heat_ratio
             self.data['Balances']['Transformation'].loc['CHP plants',flow] *= 0
+        
+        
             
     
     def calc_efficiency(

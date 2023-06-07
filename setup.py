@@ -7,7 +7,7 @@
 from setuptools import find_packages, setup
 
 setup(
-    name="ieapy",
+    name="ieastats",
     description=(
         "A class to read IEA balances in Excel and rearrange them in supply-use format"
     ),

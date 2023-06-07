@@ -1,0 +1,7 @@
+LICENSE
+setup.py
+ieastats.egg-info/PKG-INFO
+ieastats.egg-info/SOURCES.txt
+ieastats.egg-info/dependency_links.txt
+ieastats.egg-info/requires.txt
+ieastats.egg-info/top_level.txt
